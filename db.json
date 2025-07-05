@@ -1,0 +1,81 @@
+{
+  "sagas": [
+    {
+      "id": "1",
+      "nombre": "Naruto",
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/0c9ce4e037546965d6b1f3807e9f8f549a113d32066b2bdb22ada5d179c0d89a.jpg",
+      "comentario": "Una historia de perseverancia, amistad y superación.",
+      "calificacion": 8.5
+    },
+    {
+      "id": "2",
+      "nombre": "Naruto Shippuden",
+      "imagen": "https://dashtoon.com/blog/content/images/2024/11/unnamed---2024-11-21T114618.325.png",
+      "comentario": "Profunda, emocional y con batallas épicas. Muy recomendado.",
+      "calificacion": 9.3
+    },
+    {
+      "id": "3",
+      "nombre": "Boruto: Naruto Next Generations",
+      "imagen": "https://m.media-amazon.com/images/M/MV5BNDgzYzNhOGUtMWI1Mi00YjJkLWI2NGItOWFlNDE4ZjE0NGExXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "comentario": "Tiene momentos buenos, pero no alcanza el nivel de su predecesor.",
+      "calificacion": 6.8
+    },
+    {
+      "nombre": "Dragon Ball",
+      "imagen": "https://m.media-amazon.com/images/M/MV5BMGQ0ZWE4NDYtYWY0Mi00MjE0LWI1MzctZDA1NGExYzE3N2FiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "comentario": "El origen de una leyenda. Aventuras llenas de humor y peleas.",
+      "calificacion": 8,
+      "id": "4"
+    },
+    {
+      "nombre": "Dragon Ball Z Kai",
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/26502aba5ef44ddcc63b5f724cc254e32e388737ee45a8f8d1974cbc4234e3f6.jpg",
+      "comentario": "Versión remasterizada más rápida y fiel al manga.",
+      "calificacion": 8.9,
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "nombre": "Dragon Ball Super",
+      "imagen": "https://images.justwatch.com/poster/331394052/s718/season-1.jpg",
+      "comentario": "Un regreso que supo reinventarse. Grandes batallas multiversales.",
+      "calificacion": 8.6
+    },
+    {
+      "id": "7",
+      "nombre": "Dragon Ball GT",
+      "imagen": "https://www.clarin.com/img/2025/01/05/zKCaisRCn_2000x1500__2.jpg",
+      "comentario": "Una saga polémica con buenas ideas, pero ejecución irregular.",
+      "calificacion": 6.9
+    },
+    {
+      "id": "8",
+      "nombre": "Los Caballeros del Zodiaco: Saga del santuario",
+      "imagen": "https://m.media-amazon.com/images/I/61vUiPEdbgL._UF894,1000_QL80_.jpg",
+      "comentario": "Un clásico del anime, batallas en cada casa del zodiaco.",
+      "calificacion": 9
+    },
+    {
+      "id": "9",
+      "nombre": "Los Caballeros del Zodiaco: Saga de poseidon",
+      "imagen": "https://static.wikia.nocookie.net/doblaje/images/a/a0/Poseidoncdz.png/revision/latest?cb=20200516214128&path-prefix=es",
+      "comentario": "Visualmente bella, aunque con menos impacto que la anterior.",
+      "calificacion": 7.8
+    },
+    {
+      "id": "4d95",
+      "nombre": "Death Note",
+      "imagen": "https://www.galeriaplakatu.com/img/imagecache/100001-101000/product-media/PP35270(1)-679x1026-nobckgr.webp",
+      "comentario": "La animación es magistral, en serio, sobretodo los close-ups de los personajes",
+      "calificacion": 8.9
+    },
+    {
+      "nombre": "Gumball",
+      "imagen": "https://yt3.googleusercontent.com/ytc/AIdro_nPaQ9FwJY6vUKfmEB2kTuksOvurjLCVIMeWvpBYyIh9Y4=s900-c-k-c0x00ffffff-no-rj",
+      "comentario": "Maravilloso",
+      "calificacion": 1,
+      "id": "0f0d"
+    }
+  ]
+}

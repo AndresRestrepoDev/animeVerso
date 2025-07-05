@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>animeVerso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6458/6458010.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/style.css"> <!-- Lo crearemos después -->
+</head>
+<body>
+  <header>
+    <h1>🌌 animeVerso</h1>
+    <p>Explora, comparte y califica tus sagas de anime favoritas.</p>
+  </header>
+
+  <main>
+    <section id="formulario">
+      <h2>Agregar nueva saga</h2>
+      <form id="sagaForm">
+        <input type="text" id="nombre" placeholder="Nombre del anime" required>
+        <input type="url" id="imagen" placeholder="URL de la imagen" required>
+        <input type="number" id="calificacion" placeholder="Calificación (1-10)" min="1" max="10" required>
+        <textarea id="comentario" placeholder="Comentario sobre la saga" required></textarea>
+        <button type="submit">Agregar saga</button>
+      </form>
+    </section>
+
+    <section id="galeria">
+      <h2>Sagas registradas</h2>
+      <div id="sagas-container" class="sagas-grid">
+        <!-- Aquí se mostrarán las sagas con JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 animeVerso. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="./JS/script.js"></script>
+</body>
+</html>
