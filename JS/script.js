@@ -1,14 +1,19 @@
+// URL base de la API (JSON Server)
 const API_URL = "http://localhost:3000/sagas";
+
+// Referencia al contenedor donde se mostrarán las tarjetas de sagas
 const contenedor = document.getElementById("sagas-container");
-const form = document.getElementById("sagaForm");
 
-// ===============================
-// Mostrar tarjetas
-// ===============================
+// ==============================
+// Función: mostrarSaga
+// Crea y muestra una tarjeta con los datos de una saga
+// ==============================
 function mostrarSaga(saga) {
+  // Crear el elemento contenedor (tarjeta)
   const card = document.createElement("div");
-  card.classList.add("saga-card");
+  card.classList.add("saga-card"); // Clase para estilos
 
+  // Contenido HTML de la tarjeta
   card.innerHTML = `
     <img src="${saga.imagen}" alt="${saga.nombre}" width="200">
     <h3>${saga.nombre}</h3>
@@ -18,86 +23,112 @@ function mostrarSaga(saga) {
     <button class="btn-editar">✏️ Editar</button>
   `;
 
+  // Agregar tarjeta al contenedor principal
   contenedor.appendChild(card);
 
-  // Botón eliminar
+  // =====================================
+  // Evento: Eliminar saga al hacer clic
+  // =====================================
   card.querySelector(".btn-eliminar").addEventListener("click", () => {
-    if (!confirm(`¿Eliminar "${saga.nombre}"?`)) return;
+    const confirmar = confirm(`¿Estás seguro de eliminar "${saga.nombre}"?`);
+    if (!confirmar) return;
 
-    fetch(`${API_URL}/${saga.id}`, { method: "DELETE" })
+    // Realizar solicitud DELETE a la API
+    fetch(`${API_URL}/${saga.id}`, {
+      method: "DELETE"
+    })
       .then(() => {
-        alert("✅ Eliminado correctamente");
-        card.remove();
+        alert("✅ Saga eliminada correctamente");
+        card.remove(); // Quitar del DOM visualmente
       })
-      .catch(err => console.error("❌ Error al eliminar:", err));
+      .catch(error => {
+        console.error("❌ Error al eliminar saga:", error);
+      });
   });
 
-  // Botón editar
+  // =====================================
+  // Evento: Editar saga al hacer clic
+  // =====================================
   card.querySelector(".btn-editar").addEventListener("click", () => {
+    // Cargar los valores actuales en el formulario
     document.getElementById("nombre").value = saga.nombre;
     document.getElementById("imagen").value = saga.imagen;
     document.getElementById("comentario").value = saga.comentario;
     document.getElementById("calificacion").value = saga.calificacion;
 
-    document.getElementById("sagaForm").scrollIntoView({ behavior: "smooth" });
-
+    // Guardar ID en el formulario (para saber que es una edición)
     form.dataset.editando = saga.id;
+
+    // Cambiar texto del botón
     form.querySelector("button[type='submit']").textContent = "Actualizar Saga";
+
+    // Scroll hacia el formulario (mejora de UX)
+    form.scrollIntoView({ behavior: "smooth" });
   });
 }
 
-// ===============================
-// Cargar todas las sagas
-// ===============================
-function cargarSagas() {
-  contenedor.innerHTML = ""; // Limpiar antes de volver a pintar
-  fetch(API_URL)
-    .then(res => res.json())
-    .then(data => {
-      data.forEach(mostrarSaga);
-    })
-    .catch(err => console.error("❌ Error al cargar sagas:", err));
-}
+// ==============================
+// Cargar sagas existentes al iniciar
+// ==============================
+fetch(API_URL)
+  .then(res => {
+    if (!res.ok) throw new Error("No se pudo cargar la información");
+    return res.json();
+  })
+  .then(data => {
+    console.log("📦 Sagas cargadas:", data);
+    data.forEach(saga => mostrarSaga(saga)); // Mostrar cada saga
+  })
+  .catch(err => console.error("❌ Error al cargar sagas:", err));
 
-cargarSagas();
+// ==============================
+// Manejo del formulario
+// ==============================
 
-// ===============================
-// Manejar formulario (Agregar / Editar)
-// ===============================
+// Referencia al formulario
+const form = document.getElementById("sagaForm");
+
+// Evento al enviar el formulario
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault(); // Prevenir recarga de página
 
+  // Obtener datos del formulario
   const nombre = document.getElementById("nombre").value.trim();
   const imagen = document.getElementById("imagen").value.trim();
   const comentario = document.getElementById("comentario").value.trim();
   const calificacion = parseFloat(document.getElementById("calificacion").value);
 
+  // Validación de campos
   if (!nombre || !imagen || !comentario || isNaN(calificacion) || calificacion < 1 || calificacion > 10) {
     alert("⚠️ Por favor completa todos los campos correctamente.");
     return;
   }
 
+  // Crear objeto saga
   const saga = { nombre, imagen, comentario, calificacion };
+
+  // Verificar si es una edición
   const idEditando = form.dataset.editando;
 
   if (idEditando) {
-    // PUT (editar)
+    // ========================
+    // Actualizar saga existente
+    // ========================
     fetch(`${API_URL}/${idEditando}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...saga, id: Number(idEditando) })
     })
       .then(res => res.json())
-      .then(() => {
-        alert("✅ Saga actualizada");
-        delete form.dataset.editando;
-        form.querySelector("button[type='submit']").textContent = "Agregar Saga";
-        form.reset();
-        cargarSagas(); // Refrescar
+      .then(data => {
+        alert("✅ Saga actualizada correctamente");
+        location.reload(); // Recargar para reflejar cambios
       })
-      .catch(err => console.error("❌ Error al editar:", err));
+      .catch(err => console.error("❌ Error al editar saga:", err));
   } else {
-    // POST (agregar)
+    // ========================
+    // Agregar nueva saga
+    // ========================
     fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -105,10 +136,14 @@ form.addEventListener("submit", function (e) {
     })
       .then(res => res.json())
       .then(data => {
-        mostrarSaga(data);
-        form.reset();
+        mostrarSaga(data); // Mostrar nueva saga
+        form.reset(); // Limpiar formulario
       })
-      .catch(err => console.error("❌ Error al agregar:", err));
+      .catch(err => console.error("❌ Error al agregar saga:", err));
   }
-});
 
+  // Resetear el formulario (modo normal)
+  form.reset();
+  delete form.dataset.editando;
+  form.querySelector("button[type='submit']").textContent = "Agregar Saga";
+});

@@ -29,11 +29,11 @@
       "id": "4"
     },
     {
-      "nombre": "Dragon Ball Z Kai",
-      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/26502aba5ef44ddcc63b5f724cc254e32e388737ee45a8f8d1974cbc4234e3f6.jpg",
-      "comentario": "Versión remasterizada más rápida y fiel al manga.",
-      "calificacion": 8.9,
-      "id": "5"
+      "id": "5",
+      "nombre": "Dragon Ball Z",
+      "imagen": "https://i.ebayimg.com/images/g/UdsAAOSwV0VcNR4u/s-l1200.jpg",
+      "comentario": "Una obra maestra del shonen. Transformaciones inolvidables.",
+      "calificacion": 9.4
     },
     {
       "id": "6",
@@ -57,25 +57,18 @@
       "calificacion": 9
     },
     {
-      "id": "9",
       "nombre": "Los Caballeros del Zodiaco: Saga de poseidon",
-      "imagen": "https://static.wikia.nocookie.net/doblaje/images/a/a0/Poseidoncdz.png/revision/latest?cb=20200516214128&path-prefix=es",
+      "imagen": "https://i.pinimg.com/originals/1f/f9/d5/1ff9d5b2c85b84d9cb66387ad435612f.png",
       "comentario": "Visualmente bella, aunque con menos impacto que la anterior.",
-      "calificacion": 7.8
+      "calificacion": 7,
+      "id": "9"
     },
     {
-      "id": "4d95",
-      "nombre": "Death Note",
-      "imagen": "https://www.galeriaplakatu.com/img/imagecache/100001-101000/product-media/PP35270(1)-679x1026-nobckgr.webp",
-      "comentario": "La animación es magistral, en serio, sobretodo los close-ups de los personajes",
-      "calificacion": 8.9
-    },
-    {
-      "nombre": "Gumball",
-      "imagen": "https://yt3.googleusercontent.com/ytc/AIdro_nPaQ9FwJY6vUKfmEB2kTuksOvurjLCVIMeWvpBYyIh9Y4=s900-c-k-c0x00ffffff-no-rj",
-      "comentario": "Maravilloso",
-      "calificacion": 1,
-      "id": "0f0d"
+      "nombre": "Los Caballeros del Zodiaco: Saga de hades",
+      "imagen": "https://occ-0-8407-92.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABXBslcdPqf8QPJlPknyrz6VHxBMe0kzuxFxWW2eDA01GRRRG9OfRJZwFmdb3FnbLPvsKXBToOuiSX5EVApi3-hUjpcEzyF_JBueJ.jpg?r=8b7",
+      "comentario": "Oscura, épica y con una narrativa madura. Excelente cierre.",
+      "calificacion": 9,
+      "id": "10"
     }
   ]
 }
